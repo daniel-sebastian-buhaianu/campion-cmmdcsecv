@@ -22,10 +22,11 @@ int celMaiMareDivizorComun(int a, int b)
 void citesteDateleDeIntrare()
 {
 	ifstream fin("cmmdcsecv.in");
-	int n, cmmdc, lg, i, x;
+	int n, cmmdc, i, x, lg;
 	fin >> n;
-	cmmdc = 1;
-	for (lg = i = 0; i < n; i++)
+	fin >> cmmdc;
+	lg = cmmdc > 1 ? 1 : 0;
+	for (i = 1; i < n; i++)
 	{
 		fin >> x;
 		cmmdc = celMaiMareDivizorComun(cmmdc, x);
@@ -35,7 +36,7 @@ void citesteDateleDeIntrare()
 		{
 			if (lg > lgmax)
 				lgmax = lg;
-			lg = 1;
+			lg = x > 1 ? 1 : 0;
 			cmmdc = x;
 		}
 	}
